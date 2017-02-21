@@ -51,9 +51,12 @@ def update_boids(boids):
     # Fly away from nearby boids
     for i in range(number_of_boids):
 	for j in range(number_of_boids):
-	    if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < nearby_boid_dist:
-		xvs[i]=xvs[i]+(xs[i]-xs[j])
-		yvs[i]=yvs[i]+(ys[i]-ys[j])
+            x_seperation = (xs[j] - xs[i])
+            y_seperation = (ys[j] - ys[i])
+
+	    if x_seperation**2 + y_seperation**2 < nearby_boid_dist:
+		xvs[i]-=x_seperation
+		yvs[i]-=y_seperation
     
     # Try to match speed with nearby boids
     for i in range(number_of_boids):
