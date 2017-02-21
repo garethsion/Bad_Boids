@@ -61,9 +61,14 @@ def update_boids(boids):
     # Try to match speed with nearby boids
     for i in range(number_of_boids):
 	for j in range(number_of_boids):
-	    if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < flying_dist:
-		xvs[i]=xvs[i]+(xvs[j]-xvs[i])*group_flying_x_weight/number_of_boids
-		yvs[i]=yvs[i]+(yvs[j]-yvs[i])*group_flying_y_weight/number_of_boids
+            x_seperation = (xs[j] - xs[i])
+            y_seperation = (ys[j] - ys[i])
+            x_velocity_seperation = (xvs[j]-xvs[i]) 
+            y_velocity_seperation = (yvs[j]-yvs[i])  
+
+	    if x_seperation**2 + x_seperation**2 < flying_dist:
+		xvs[i]+=x_velocity_seperation*group_flying_x_weight/number_of_boids
+		yvs[i]+=y_velocity_seperation*group_flying_y_weight/number_of_boids
     
     # Move according to velocities
     for i in range(number_of_boids):
