@@ -38,31 +38,31 @@ def update_boids(boids):
     flying_dist = 10000
     group_flying_x_weight = 0.125
     group_flying_y_weight = 0.125
-
+    
     # Fly towards the middle
-    for i in range(len(xs)):
-	for j in range(len(xs)):
-	    xvs[i]=xvs[i]+(xs[j]-xs[i])*fly_to_mid_x_weight/len(xs)
-    for i in range(len(xs)):
-	for j in range(len(xs)):
-	    yvs[i]=yvs[i]+(ys[j]-ys[i])*fly_to_mid_y_weight/len(xs)
+    for i in range(range_int):
+	for j in range(range_int):
+	    xvs[i]=xvs[i]+(xs[j]-xs[i])*fly_to_mid_x_weight/range_int
+    for i in range(range_int):
+	for j in range(range_int):
+	    yvs[i]=yvs[i]+(ys[j]-ys[i])*fly_to_mid_y_weight/range_int
     
     # Fly away from nearby boids
-    for i in range(len(xs)):
-	for j in range(len(xs)):
+    for i in range(range_int):
+	for j in range(range_int):
 	    if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < nearby_boid_dist:
 		xvs[i]=xvs[i]+(xs[i]-xs[j])
 		yvs[i]=yvs[i]+(ys[i]-ys[j])
     
     # Try to match speed with nearby boids
-    for i in range(len(xs)):
-	for j in range(len(xs)):
+    for i in range(range_int):
+	for j in range(range_int):
 	    if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < flying_dist:
-		xvs[i]=xvs[i]+(xvs[j]-xvs[i])*group_flying_x_weight/len(xs)
-		yvs[i]=yvs[i]+(yvs[j]-yvs[i])*group_flying_y_weight/len(xs)
+		xvs[i]=xvs[i]+(xvs[j]-xvs[i])*group_flying_x_weight/range_int
+		yvs[i]=yvs[i]+(yvs[j]-yvs[i])*group_flying_y_weight/range_int
     
     # Move according to velocities
-    for i in range(len(xs)):
+    for i in range(range_int):
 	xs[i]=xs[i]+xvs[i]
 	ys[i]=ys[i]+yvs[i]
 
@@ -80,3 +80,4 @@ anim = animation.FuncAnimation(figure, animate,
 
 if __name__ == "__main__":
     plt.show()
+   
