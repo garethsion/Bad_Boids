@@ -42,12 +42,12 @@ def update_boids(boids):
     
     # Fly towards the middle
     for i in range(number_of_boids):
-	for j in range(number_of_boids):
-	    xvs[i]=xvs[i]+(xs[j]-xs[i])*fly_to_mid_x_weight/number_of_boids
-    for i in range(number_of_boids):
-	for j in range(number_of_boids):
-	    yvs[i]=yvs[i]+(ys[j]-ys[i])*fly_to_mid_y_weight/number_of_boids
-    
+        for j in range(number_of_boids):
+            x_seperation = (xs[j] - xs[i])
+            y_seperation = (ys[j] - ys[i])
+            xvs[i]+=x_seperation*fly_to_mid_x_weight/number_of_boids
+            yvs[i]+=y_seperation*fly_to_mid_y_weight/number_of_boids
+   
     # Fly away from nearby boids
     for i in range(number_of_boids):
 	for j in range(number_of_boids):
