@@ -40,40 +40,32 @@ def update_boids(boids):
     group_flying_x_weight = 0.125
     group_flying_y_weight = 0.125
     
-    # Fly towards the middle
+   
     for i in range(number_of_boids):
         for j in range(number_of_boids):
             x_seperation = (xs[j] - xs[i])
             y_seperation = (ys[j] - ys[i])
+            
+            # Fly towards the middle
             xvs[i]+=x_seperation*fly_to_mid_x_weight/number_of_boids
             yvs[i]+=y_seperation*fly_to_mid_y_weight/number_of_boids
    
-    # Fly away from nearby boids
-    for i in range(number_of_boids):
-	for j in range(number_of_boids):
-            x_seperation = (xs[j] - xs[i])
-            y_seperation = (ys[j] - ys[i])
-
-	    if x_seperation**2 + y_seperation**2 < nearby_boid_dist:
-		xvs[i]-=x_seperation
+            # Fly away from nearby boids
+            if x_seperation**2 + y_seperation**2 < nearby_boid_dist:
+                xvs[i]-=x_seperation
 		yvs[i]-=y_seperation
-    
-    # Try to match speed with nearby boids
-    for i in range(number_of_boids):
-	for j in range(number_of_boids):
-            x_seperation = (xs[j] - xs[i])
-            y_seperation = (ys[j] - ys[i])
+     
+            # Try to match speed with nearby boids
             x_velocity_seperation = (xvs[j]-xvs[i]) 
-            y_velocity_seperation = (yvs[j]-yvs[i])  
-
+            y_velocity_seperation = (yvs[j]-yvs[i]) 
 	    if x_seperation**2 + x_seperation**2 < flying_dist:
 		xvs[i]+=x_velocity_seperation*group_flying_x_weight/number_of_boids
 		yvs[i]+=y_velocity_seperation*group_flying_y_weight/number_of_boids
     
     # Move according to velocities
     for i in range(number_of_boids):
-	xs[i]=xs[i]+xvs[i]
-	ys[i]=ys[i]+yvs[i]
+	xs[i]+=xvs[i]
+	ys[i]+=yvs[i]
 
 figure=plt.figure()
 axes=plt.axes(xlim=(x_axis_limits[0],x_axis_limits[1]), ylim=(y_axis_limits[0],y_axis_limits[1]))
