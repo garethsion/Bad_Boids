@@ -72,9 +72,8 @@ axes=plt.axes(xlim=(x_axis_limits[0],x_axis_limits[1]), ylim=(y_axis_limits[0],y
 scatter=axes.scatter(boids[0],boids[1])
 
 def animate(frame):
-   update_boids(boids)
-   scatter.set_offsets(zip(boids[0],boids[1]))
-
+    update_boids(boids)
+    scatter.set_offsets(zip(boids[0],boids[1]))
 
 anim = animation.FuncAnimation(figure, animate,
                                frames=anim_frame_rate, interval=anim_interval)
