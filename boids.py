@@ -33,12 +33,12 @@ boids=(boids_x,boids_y,boid_x_velocities,boid_y_velocities)
 def update_boids(boids):
     xs,ys,xvs,yvs=boids
     
-    fly_to_mid_x_weight = 0.01
-    fly_to_mid_y_weight = 0.01
+    fly_to_mid_weight = 0.01
+    fly_to_mid_weight = 0.01
     nearby_boid_dist = 100
     flying_dist = 10000
-    group_flying_x_weight = 0.125
-    group_flying_y_weight = 0.125
+    group_flying_weight = 0.125
+    group_flying_weight = 0.125
     
    
     for i in range(number_of_boids):
@@ -47,8 +47,8 @@ def update_boids(boids):
             y_seperation = (ys[j] - ys[i])
             
             # Fly towards the middle
-            xvs[i]+=x_seperation*fly_to_mid_x_weight/number_of_boids
-            yvs[i]+=y_seperation*fly_to_mid_y_weight/number_of_boids
+            xvs[i]+=x_seperation*fly_to_mid_weight/number_of_boids
+            yvs[i]+=y_seperation*fly_to_mid_weight/number_of_boids
    
             # Fly away from nearby boids
             if x_seperation**2 + y_seperation**2 < nearby_boid_dist:
@@ -59,8 +59,8 @@ def update_boids(boids):
             x_velocity_seperation = (xvs[j]-xvs[i]) 
             y_velocity_seperation = (yvs[j]-yvs[i]) 
 	    if x_seperation**2 + x_seperation**2 < flying_dist:
-		xvs[i]+=x_velocity_seperation*group_flying_x_weight/number_of_boids
-		yvs[i]+=y_velocity_seperation*group_flying_y_weight/number_of_boids
+		xvs[i]+=x_velocity_seperation*group_flying_weight/number_of_boids
+		yvs[i]+=y_velocity_seperation*group_flying_weight/number_of_boids
     
     # Move according to velocities
     for i in range(number_of_boids):
