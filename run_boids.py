@@ -48,12 +48,12 @@ def load_config(config_filename):
         
 def run_boids(cfgdata):
     number_of_boids = cfgdata["number_of_boids"]
-    formation_flying_distance = cfgdata["group_flying_dist"]
-    formation_flying_strength = cfgdata["group_flying_strength"]
+    group_flying_dist = cfgdata["group_flying_dist"]
+    group_flying_strength = cfgdata["group_flying_strength"]
     alert_distance = cfgdata["alert_distance"]
-    attraction_strength = cfgdata["mid_strength"]
-    initial_position_range = cfgdata["initial_position"]
-    initial_velocity_range = cfgdata["initial_velocity"]
+    mid_strength = cfgdata["mid_strength"]
+    initial_position = cfgdata["initial_position"]
+    initial_velocity = cfgdata["initial_velocity"]
     axis_limits = cfgdata["axis_limits"]
     
     flock = Flock(flock_size,
