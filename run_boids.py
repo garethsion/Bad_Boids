@@ -56,13 +56,13 @@ def run_boids(cfgdata):
     initial_velocity = cfgdata["initial_velocity"]
     axis_limits = cfgdata["axis_limits"]
     
-    flock = Flock(flock_size,
-                  formation_flying_distance,
-                  formation_flying_strength,
+    flock = Flock(number_of_boids,
+                  group_flying_dist,
+                  group_flying_strength,
                   alert_distance,
-                  attraction_strength,
-                  initial_position_range,
-                  initial_velocity_range)
+                  mid_strength,
+                  initial_position,
+                  initial_velocity)
 
     figure=plt.figure()
     axes=plt.axes(xlim=(plot_axis_limits[0][0],
