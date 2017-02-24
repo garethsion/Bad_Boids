@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-from boids.run_boids import parse_args, load_config, run_boids
+from boids.command import parse_args, load_config, run_boids
 
 cfgdata = parse_args()
-if cfgdata["from_file"]:
-    cfgdata = load_config(cfgdata["from_file"])
+if cfgdata["input_file"]:
+    cfgdata = load_config(cfgdata["input_file"])
 run_boids(cfgdata)
