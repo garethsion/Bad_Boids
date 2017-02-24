@@ -22,8 +22,8 @@ class Boid(object):
         # Try to match speed with nearby boids
         if distance < self.flock.group_flying_dist*self.flock.group_flying_dist:
             self.velocity+=velocity_sep*self.flock.group_flying_weight/self.flock.number_of_boids
-        
-	return flight
+            
+        return flight
 
 class Flock(object):
     def __init__(self,
@@ -35,15 +35,16 @@ class Flock(object):
             initial_position = [[-450,50],[300,600]],
             initial_velocity = [[0,10],[-20,20]]):
  
-	self.boids = [Boid(array([random.uniform(initial_position[0][0], initial_position[0][1]),
-	    random.uniform(initial_position[1][0], initial_position[1][1])]), 
-	    array([random.uniform(initial_velocity[0][0], initial_velocity[0][1]), 
+	    self.boids = [Boid(array([random.uniform(initial_position[0][0], 
+                initial_position[0][1]), random.uniform(initial_position[1][0], 
+                initial_position[1][1])]), array([random.uniform(initial_velocity[0][0], 
+                initial_velocity[0][1]), 
 	    random.uniform(initial_velocity[1][0], initial_velocity[1][1])])) 
 	    for boids in range(number_of_boids)]
 		
     def new_boids(self):
-	for boid in self.boids:
+        for boid in self.boids:
             for target in self.boids:
-		boid.flight(target)
+                boid.flight(target)
         for boid in self.boids:
             boid.position+=boid.velocity
