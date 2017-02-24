@@ -29,7 +29,7 @@ Optional arguments:
   --avoid_dist [num]
                         Distance in which boids avoid colliding with one another.
                         
-  --strength [num]
+  --d_strength [num]
                         The degree to which boids try and flock together.
 
 
