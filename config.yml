@@ -1,0 +1,14 @@
+alert_dist: 10
+fly_to_mid_weight: 0.01
+number_of_boids: 50
+nearby_boid_dist: 100
+flying_dist: 0.125
+initial_position:
+- [-450, 50]
+- [300, 600]
+initial_velocity:
+- [0, 10]
+- [-20, 20]
+plot_axis_limits:
+- [-500, 1500]
+- [-500, 1500]
