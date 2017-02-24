@@ -1,12 +1,14 @@
 To install, run: sudo python setup.py install
 
-To run type: boids  [-h]
-                    [--file FILE]
-                    [--size SIZE]
-                    [--dist DIST]
-                    [--strength STRENGTH]
-                    [--avoid_dist AVOID_DIST]
-                    [--mid_strength MID_STRENGTH]
+This program has been written to run from the command line. 
+
+To run type: good_boids [-h]
+                    	[--file FILE]
+                    	[--size SIZE]
+                    	[--dist DIST]
+                    	[--strength STRENGTH]
+                    	[--avoid_dist AVOID_DIST]
+                    	[--mid_strength MID_STRENGTH]
 
 Optional arguments:
   -h, --help
